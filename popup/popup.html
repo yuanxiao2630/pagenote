@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>页注 · 网页批注</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <header class="topbar">
+        <div class="brand">
+          <img src="../icons/icon48.png" alt="" width="38" height="38" class="brand-icon" />
+          <div class="brand-copy">
+            <div class="brand-title">页注 <span>PAGENOTE</span></div>
+            <p>在网页上留下你的想法</p>
+          </div>
+        </div>
+        <span class="local-badge" title="所有批注都保存在此浏览器">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          本地
+        </span>
+      </header>
+
+      <section class="page-card" aria-label="当前页面">
+        <div class="page-card-top">
+          <span class="page-kicker"><i></i>当前页面</span>
+          <span class="page-status" id="pageStatus">已连接</span>
+        </div>
+        <h1 id="pageTitle">正在读取页面…</h1>
+        <p class="page-host" id="pageHost"> </p>
+        <div class="stats" id="stats">
+          <span><strong id="markCount">0</strong> 条标记</span>
+          <span class="stats-sep"></span>
+          <span><strong id="noteCount">0</strong> 条笔记</span>
+        </div>
+        <div class="notice" id="notice" hidden role="alert">
+          <div class="notice-icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></svg>
+          </div>
+          <div>
+            <strong id="noticeTitle">这个页面无法批注</strong>
+            <p id="noticeText"></p>
+          </div>
+        </div>
+      </section>
+
+      <button type="button" class="cta" id="openPanel">
+        <span class="cta-marker" aria-hidden="true">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15.5 4.5 4 4L8 20H4v-4L15.5 4.5Z"/><path d="m12.5 7.5 4 4"/></svg>
+        </span>
+        <span class="cta-label" id="ctaLabel">打开本页批注</span>
+        <span class="cta-arrow" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </button>
+
+      <p class="shortcut" id="shortcut">
+        快捷键
+        <span class="keycaps" aria-label="Alt Shift N"><kbd>Alt</kbd><kbd>Shift</kbd><kbd>N</kbd></span>
+        随手打开
+      </p>
+      <p class="inline-error" id="inlineError" role="alert" hidden></p>
+
+      <section class="how" aria-label="如何使用页注">
+        <div class="step">
+          <span class="step-number">01</span>
+          <b>选中文字</b>
+          <small>一段话、一句话</small>
+        </div>
+        <div class="step">
+          <span class="step-number">02</span>
+          <b>高亮或划线</b>
+          <small>四种颜色可选</small>
+        </div>
+        <div class="step">
+          <span class="step-number">03</span>
+          <b>写下笔记</b>
+          <small>收进右侧批注栏</small>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span class="footer-note">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          不上传，不同步，只留在本机
+        </span>
+        <span class="version">v1.0.0</span>
+      </footer>
+    </main>
+
+    <script src="../shared/constants.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

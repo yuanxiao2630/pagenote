@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>在旧书店里，重新学会慢下来 · 野径</title>
+<style>
+  :root {
+    --paper: #f4efe4;
+    --ink: #202c26;
+    --muted: #6f776f;
+    --line: #d9cfbc;
+    --accent: #b4492f;
+  }
+  * { box-sizing: border-box; }
+  html { background: #e7dfd0; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background:
+      radial-gradient(90% 40% at 50% 0%, rgba(255,255,255,.55), transparent 70%),
+      var(--paper);
+    font-family: "Iowan Old Style", "Songti SC", "Noto Serif SC", Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .site-head {
+    display: flex; align-items: center; justify-content: space-between;
+    width: min(1080px, calc(100% - 80px));
+    margin: 0 auto; padding: 26px 0 22px;
+    border-bottom: 1px solid var(--line);
+  }
+  .wordmark { display: flex; align-items: baseline; gap: 12px; }
+  .wordmark b { font-size: 22px; font-weight: 600; letter-spacing: .14em; }
+  .wordmark span { color: var(--muted); font-family: "Avenir Next", "PingFang SC", sans-serif; font-size: 9px; letter-spacing: .22em; }
+  nav { display: flex; gap: 28px; color: var(--muted); font-family: "Avenir Next", "PingFang SC", sans-serif; font-size: 12px; letter-spacing: .06em; }
+  nav a { color: inherit; text-decoration: none; }
+  .paper {
+    width: min(760px, calc(100% - 64px));
+    margin: 0 auto; padding: 74px 0 100px;
+  }
+  .kicker {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 26px; color: var(--accent);
+    font-family: "Avenir Next", "PingFang SC", sans-serif;
+    font-size: 10px; font-weight: 600; letter-spacing: .2em;
+  }
+  .kicker::before { content: ""; width: 28px; height: 1px; background: var(--accent); }
+  h1 {
+    margin: 0; max-width: 700px;
+    font-size: clamp(44px, 5vw, 64px); font-weight: 500; line-height: 1.22; letter-spacing: -.015em;
+  }
+  .standfirst {
+    max-width: 620px; margin: 24px 0 0;
+    color: #59635c; font-size: 18px; line-height: 1.9;
+  }
+  .byline {
+    display: flex; align-items: center; gap: 12px;
+    margin-top: 34px; padding-top: 21px; border-top: 1px solid var(--line);
+    color: var(--muted); font-family: "Avenir Next", "PingFang SC", sans-serif; font-size: 11px; letter-spacing: .03em;
+  }
+  .avatar {
+    display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%;
+    background: #26362f; color: #f4efe4; font-family: var(--serif, serif); font-size: 13px;
+  }
+  .byline strong { color: var(--ink); font-weight: 600; }
+  .byline .sep { color: #b9ac96; }
+  .hero {
+    width: min(1000px, calc(100% - 64px)); height: 290px; margin: 46px auto 0;
+    border-radius: 2px; overflow: hidden; position: relative;
+    background:
+      linear-gradient(120deg, rgba(32,44,38,.72), rgba(32,44,38,.2)),
+      repeating-linear-gradient(90deg, #7d5c40 0 3px, #8d6b4d 3px 7px, #694b33 7px 11px);
+    box-shadow: 0 22px 50px rgba(73, 55, 32, .2);
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: 22px;
+    border: 1px solid rgba(255,255,255,.24);
+  }
+  .hero-caption {
+    position: absolute; left: 42px; bottom: 34px; color: #f1e9da;
+    font-family: "Avenir Next", "PingFang SC", sans-serif; font-size: 10px; letter-spacing: .18em;
+  }
+  .hero-caption b { display: block; margin-bottom: 8px; font-family: "Songti SC", serif; font-size: 25px; font-weight: 400; letter-spacing: .06em; }
+  .article { padding-top: 54px; }
+  .article p {
+    margin: 0 0 28px; font-size: 17.5px; line-height: 2.05; letter-spacing: .012em;
+  }
+  .article p:first-of-type::first-letter {
+    float: left; margin: 7px 8px 0 0; color: var(--accent);
+    font-size: 60px; line-height: .78; font-weight: 500;
+  }
+  .article h2 {
+    margin: 48px 0 22px; font-size: 25px; font-weight: 500; letter-spacing: .03em;
+  }
+  .pullquote {
+    margin: 44px 0 44px; padding: 4px 0 4px 25px;
+    border-left: 2px solid var(--accent);
+    color: #3b4a41; font-size: 26px; line-height: 1.65;
+  }
+  .pullquote small {
+    display: block; margin-top: 14px; color: var(--muted);
+    font-family: "Avenir Next", "PingFang SC", sans-serif; font-size: 10px; letter-spacing: .12em;
+  }
+  .endmark { margin: 58px auto 0; color: var(--accent); font-size: 18px; letter-spacing: .8em; text-align: center; }
+  .site-foot {
+    border-top: 1px solid var(--line); width: min(1080px, calc(100% - 80px)); margin: 0 auto; padding: 26px 0 40px;
+    color: var(--muted); font-family: "Avenir Next", "PingFang SC", sans-serif; font-size: 10px; letter-spacing: .08em;
+  }
+  @media (max-width: 700px) {
+    .site-head { width: calc(100% - 32px); }
+    nav { display: none; }
+    .paper { width: calc(100% - 40px); padding-top: 44px; }
+    .hero { width: calc(100% - 32px); height: 190px; }
+    .hero-caption { left: 26px; bottom: 24px; }
+    .article p { font-size: 16.5px; }
+  }
+</style>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wordmark"><b>野径</b><span>FIELD NOTES · 07</span></div>
+    <nav><a href="#">首页</a><a href="#">漫步</a><a href="#">书与字</a><a href="#">关于</a></nav>
+  </header>
+
+  <section class="hero" aria-label="旧书店书架">
+    <div class="hero-caption"><b>在纸页之间</b>SHANGHAI · 2026</div>
+  </section>
+
+  <main class="paper">
+    <div class="kicker">城市观察 · 慢生活</div>
+    <h1>在旧书店里，<br>重新学会慢下来</h1>
+    <p class="standfirst">当所有答案都可以在一秒钟内被搜索到，一间没有索引、也没有推荐算法的旧书店，反而像一座让人重新学会迷路的森林。</p>
+    <div class="byline">
+      <span class="avatar">林</span>
+      <strong>林晚舟</strong>
+      <span class="sep">/</span>
+      <span>2026 年 11 月 12 日</span>
+      <span class="sep">/</span>
+      <span>约 8 分钟</span>
+    </div>
+
+    <article class="article">
+      <p>书店藏在一条梧桐树影很深的弄堂里。门框低矮，木地板走上去会发出轻微的响声。老板坐在靠窗的位置修一本脱线的旧书，见我进来，只抬了抬下巴，算是打过招呼。这里没有「新书推荐」，也没有「本月畅销」，书架上的分类牌是手写的。</p>
+      <p>我沿着书架慢慢走。书脊的颜色深浅不一，有些已经褪成灰白。抽出一本，扉页上写着陌生人的名字，旁边还有一行铅笔小字：<em>“读到第三章，想起外婆家的院子。”</em> 那一刻，我忽然觉得，这本书并不完全属于书店，它同时属于所有曾经翻开过它的人。</p>
+      <p>我们这一代人已经太习惯「快速找到」。想知道一个词的意思，搜索；想读一本书，下载；想听一段音乐，点开推荐。效率当然是一种自由，但有时候，它也会悄悄拿走另一种自由——那种在毫无目标地游荡时，偶然撞见某样东西的惊喜。</p>
+
+      <blockquote class="pullquote">
+        慢下来不是浪费时间，而是把时间重新还给自己。
+        <small>FIELD NOTE NO. 03</small>
+      </blockquote>
+
+      <h2>让手指先于目的</h2>
+      <p>旧书店的乐趣在于，你没有办法直接抵达。想找一本讲植物的书，最后却抱回一本 1980 年代的城市地图；原本只打算待十分钟，抬头时窗外的光已经变成了橙色。这种「低效」，恰恰是它最慷慨的地方。</p>
+      <p>老板说，店里最常被问的问题不是“有没有某本书”，而是“这里有没有什么好看的”。他喜欢这个问法。因为「好看」不是一个关键词，它需要人亲自走进去，用眼睛、手指和一点点耐心去辨认。</p>
+      <p>离开时，我买了两本书。一本是旧版的植物图鉴，另一本是一册没有封面的诗集。老板用牛皮纸把它们包好，又系上一根细麻绳。走出弄堂，天色刚好暗下来，路灯一盏一盏亮起。</p>
+      <div class="endmark">· · ·</div>
+    </article>
+  </main>
+
+  <footer class="site-foot">野径 © 2026 · 在城市里，留一条慢慢走的路。</footer>
+  <script>
+    // Test-only: shifts the article DOM on the next reload to exercise quote re-anchoring.
+    try {
+      if (sessionStorage.getItem('pagenote-test-shift') === '1') {
+        sessionStorage.removeItem('pagenote-test-shift');
+        const article = document.querySelector('.article');
+        const first = article && article.querySelector('p');
+        if (article && first) {
+          const p = document.createElement('p');
+          p.textContent = '这是一段在页面加载时临时插入的文字，用来确认批注在页面结构变化之后仍然能找到原来的句子。';
+          article.insertBefore(p, first);
+        }
+      }
+    } catch (_error) {}
+  </script>
+</body>
+</html>
